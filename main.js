@@ -85,6 +85,24 @@ Clientes.push(clienteNuevo);
 // Mostrar que se agrego cliente
 document.getElementById('clienteAgregado').textContent = `Se agrego el Cliente ${nombre}`;
 
-console.log(Clientes)
 }
+
+//Creo evento a la espera de que le haga clic al boton Mostrar Listado
+let botonMostrar = document.getElementById("btnMostrar");
+botonMostrar.addEventListener("click", MostrarListado);
+
+
+function MostrarListado() {
+    //limpio lo que este escrito en pantalla
+    document.getElementById('clienteAgregado').textContent = "";
+    document.getElementById('ListadoDeClientes').textContent = "";
+
+    //Buco en el Array los clientes y muestro sus nombres
+    Clientes.forEach((Cliente) => {
+        const nombreCliente = document.createElement("li");
+        nombreCliente.textContent = Cliente.nombre
+        document.getElementById('ListadoDeClientes').appendChild(nombreCliente);
+    });
+}
+
 
